@@ -25,11 +25,12 @@ function App() {
 
   return (
     <>
-     <div className={css.app}></div>
+     <div className={css.app}>
      <CafeInfo />
       <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={canReset} />
       {totalVotes >0 ?<VoteStats votes={votes} totalVotes={totalVotes} positiveRate={positiveRate} />:<Notification />
       }
+      </div>
     </>
   )
 }
