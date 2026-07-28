@@ -19,14 +19,15 @@ function App() {
     setVotes({...votes, good: 0, neutral: 0, bad: 0 });
   };
 
-  const totalVotes = votes.good + votes.neutral + votes.bad;
+  const totalVotes   = votes.good + votes.neutral + votes.bad;
   const positiveRate = totalVotes > 0 ? Math.round((votes.good / totalVotes)*100):0;
+  const canReset = totalVotes > 0 ? true : false;
 
   return (
     <>
      <div className={css.app}></div>
      <CafeInfo />
-      <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={true} />
+      <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={canReset} />
       {totalVotes >0 ?<VoteStats votes={votes} totalVotes={totalVotes} positiveRate={positiveRate} />:<Notification />
       }
     </>
