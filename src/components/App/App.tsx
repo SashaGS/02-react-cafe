@@ -5,6 +5,7 @@ import type { Votes, VoteType } from '../../types/Votes'
 import CafeInfo from '../CafeInfo/CafeInfo'
 import VoteOptions from '../VoteOptions/VoteOptions'
 import VoteStats from '../VoteStats/VoteStats'
+import Notification from '../Notification/Notification'
 
 function App() {
   
@@ -25,8 +26,9 @@ function App() {
     <>
      <div className={css.app}></div>
      <CafeInfo />
-     <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={true} />
-     <VoteStats votes={votes} totalVotes={totalVotes} positiveRate={positiveRate}/>
+      <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={true} />
+      {totalVotes >0 ?<VoteStats votes={votes} totalVotes={totalVotes} positiveRate={positiveRate} />:<Notification />
+      }
     </>
   )
 }
