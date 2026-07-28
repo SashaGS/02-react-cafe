@@ -1,10 +1,8 @@
 
 import { useState } from 'react'
-
-import CafeInfo from '../CafeInfo/CafeInfo'
+import css from './App.module.css'
 import type { Votes, VoteType } from '../../types/Votes'
-
-import css from './App.module.css' 
+import CafeInfo from '../CafeInfo/CafeInfo'
 import VoteOptions from '../VoteOptions/VoteOptions'
 
 function App() {
@@ -13,7 +11,6 @@ function App() {
   
   const handleVote = (type:VoteType) => {
     setVotes( votes=>({...votes,[type]:votes[type]+1,}));
-      // console.log("Test");
   };
 
   const resetVotes = () => {
